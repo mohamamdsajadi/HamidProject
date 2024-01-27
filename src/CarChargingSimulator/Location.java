@@ -6,21 +6,37 @@ public class Location {
 
     private String name;
 
-    private EnergySource energySource;
+    private  Slot slot ;
+
+
+
     private Car car;
 
-    public Location(String name, EnergySource energySource, Car car) {
+    public Location(String name, Car car  , Slot slot) {
         this.name = name;
-        this.energySource = energySource;
         this.car = car;
+        this.slot = slot;
     }
 
     public boolean isOccupied(){
         return  this.car==null;
     }
 
-    public void Charge(){
+    public void charge(Car car){
+        double carBatteryRemaining = car.getBattery().getRemaining();
+        double  carBatteryCapacity = car.getBattery().getCapacity();
+        if (  carBatteryCapacity - carBatteryRemaining <= this.slot.getCurrentAmount())
+            car.getBattery().charge(carBatteryCapacity-carBatteryRemaining);
+        else {
+            chargeSlot();
+            charge(car);
+        }
 
+
+    }
+
+    private void chargeSlot() {
+        this.slot.getEnergySource()
     }
 
     public String getName() {
@@ -31,13 +47,7 @@ public class Location {
         this.name = name;
     }
 
-    public EnergySource getEnergySource() {
-        return energySource;
-    }
 
-    public void setEnergySource(EnergySource energySource) {
-        this.energySource = energySource;
-    }
 
     public Car getCar() {
         return car;
@@ -45,5 +55,13 @@ public class Location {
 
     public void setCar(Car car) {
         this.car = car;
+    }
+
+    public Slot getSlot() {
+        return slot;
+    }
+
+    public void setSlot(Slot slot) {
+        this.slot = slot;
     }
 }
