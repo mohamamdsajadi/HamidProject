@@ -1,14 +1,120 @@
 package CarChargingSimulator;
 
 import CarChargingSimulator.Car.Car;
+import Weather.WeatherState;
 
-import java.util.List;
-import java.util.Queue;
+import java.time.LocalDateTime;
+import java.util.*;
 
 public class ChargingStation {
-    private  String name ;
-    private List<Location> locations ;
-    private Queue cars ;
+    private String name;
+    private List<Location> locations;
+    private Queue<Car> cars;
+
+    private WeatherState weatherState;
 
 
+    public ChargingStation(String name, WeatherState weatherState) {
+        this.name = name;
+        this.locations = new ArrayList<Location>();
+        this.cars = new PriorityQueue();
+        this.weatherState = weatherState;
+    }
+
+    public void addCar(Car car) {
+        car.setArriveTime(LocalDateTime.now());
+        if (cars.size()*2<15)//each car takes 2 minutes to be charged and the fixed amount time is 15 minuet
+            this.cars.add(car);
+        else throw  new RuntimeException();
+    }
+
+    public void addLocation(Location location) {
+        this.locations.add(location);
+    }
+
+    public void getWeatherState() throws InterruptedException {
+        weatherState.getWeatherStatus();
+    }
+
+    public void setWeatherState(WeatherState weatherState) {
+        this.weatherState = weatherState;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
+    }
+
+    public Queue getCars() {
+        return cars;
+    }
+
+    public void setCars(Queue cars) {
+        this.cars = cars;
+    }
+
+    public void refillSource(Location location) throws InterruptedException {
+        String energySourceType = location.getSlot().getEnergySource().getClass().getSimpleName();
+        String weatherStatus = weatherState.getClass().getSimpleName();
+        if (energySourceType.equalsIgnoreCase("Water")) {
+            if (weatherStatus.equals("RainyWeather")) {
+                System.out.println("energy generating with rain ... ");
+                showProcessBar();
+                location.getSlot().getEnergySource().energyGenerating(2000);
+            } else {
+                System.out.println("we are in another weather condition ... can't fill this resource");
+                throw new RuntimeException();
+            }
+        }
+
+    }
+
+    private void showProcessBar() throws InterruptedException {
+        int totalProgress = 50;
+        int currentProgress = 0;
+
+        System.out.print("Progress: [");
+
+        while (currentProgress < totalProgress) {
+            currentProgress++;
+
+            int percentage = (currentProgress * 100) / totalProgress;
+            int completedBlocks = (currentProgress * 20) / totalProgress;
+            int remainingBlocks = 20 - completedBlocks;
+
+            System.out.print("=".repeat(completedBlocks));
+            System.out.print(" ".repeat(remainingBlocks));
+            System.out.print("] " + percentage + "%");
+
+            System.out.print("\r");
+
+            Thread.sleep(100);
+        }
+
+        System.out.println("\nProgress complete!");
+        Thread.sleep(2000);
+    }
+
+    public void startWorking() throws InterruptedException {
+        Random random = new Random();
+        while (!this.cars.isEmpty()){
+            int locationIndex = random.nextInt(0,locations.size()) ;
+            Location location = locations.get(locationIndex);
+            if (!location.isOccupied()){
+                location.setCar(this.cars.poll());
+                location.charge();
+            }
+        }
+    }
 }

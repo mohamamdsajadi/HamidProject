@@ -1,6 +1,6 @@
 package CarChargingSimulator.Car;
 
-public class ElectricityBatteryTypeA  implements Battery{
+public class ElectricalBatteryTypeA implements Battery{
     private final double capacity  = 100 ;
     private  double  remainingCharge  ;
 
@@ -12,7 +12,7 @@ public class ElectricityBatteryTypeA  implements Battery{
         this.remainingCharge = remainingCharge;
     }
 
-    public ElectricityBatteryTypeA(double remainingCharge) {
+    public ElectricalBatteryTypeA(double remainingCharge) {
         this.remainingCharge = remainingCharge;
     }
 
@@ -30,5 +30,13 @@ public class ElectricityBatteryTypeA  implements Battery{
     @Override
     public double getRemaining() {
         return remainingCharge;
+    }
+
+    @Override
+    public String toString() {
+        return "ElectricalBatteryTypeA{" +
+                "capacity=" + capacity +
+                ", remainingCharge=" + remainingCharge +
+                '}';
     }
 }

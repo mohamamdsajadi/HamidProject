@@ -1,5 +1,5 @@
 package Weather;
 
 public interface WeatherState {
-   void getWeatherStatus();
+   void getWeatherStatus() throws InterruptedException;
 }

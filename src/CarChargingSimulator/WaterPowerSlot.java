@@ -4,7 +4,7 @@ import CarChargingSimulator.Sources.EnergySource;
 import CarChargingSimulator.Sources.Water;
 
 public class WaterPowerSlot extends Slot{
-    public WaterPowerSlot(Water energySource ) {
-        super(energySource, 80);
+    public WaterPowerSlot( ) {
+        super(new Water(), 80);
     }
 }

@@ -1,6 +1,10 @@
 package CarChargingSimulator.Car;
 
-public class Car {
+import java.time.LocalDateTime;
+import java.util.Date;
+
+public class Car implements Comparable{
+    private LocalDateTime arriveTime;
     private String carId;
     private String carName ;
     private Battery battery;
@@ -9,6 +13,14 @@ public class Car {
         this.carId = carId;
         this.carName = carName;
         this.battery = battery;
+    }
+
+    public LocalDateTime getArriveTime() {
+        return arriveTime;
+    }
+
+    public void setArriveTime(LocalDateTime arriveTime) {
+        this.arriveTime = arriveTime;
     }
 
     public String getCarId() {
@@ -33,5 +45,18 @@ public class Car {
 
     public void setBattery(Battery battery) {
         this.battery = battery;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "carId='" + carId + '\'' +
+                ", carName='" + carName + '\'' +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return this.arriveTime.compareTo( ((Car) o ).arriveTime   );
     }
 }

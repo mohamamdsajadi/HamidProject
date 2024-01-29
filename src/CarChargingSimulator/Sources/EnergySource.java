@@ -1,6 +1,11 @@
 package CarChargingSimulator.Sources;
 
 public abstract class EnergySource {
+    public EnergySource(int minutesToFull50Unit, double totalAvailableAmount) {
+        this.minutesToFull50Unit = minutesToFull50Unit;
+        TotalAvailableAmount = totalAvailableAmount;
+    }
+
     public int getMinutesToFull50Unit() {
         return minutesToFull50Unit;
     }
@@ -23,6 +28,7 @@ public abstract class EnergySource {
 
     public abstract double energyHarvesting(double amount);
      public   void energyGenerating(double amount){
+
          this.TotalAvailableAmount += amount;
      }
 

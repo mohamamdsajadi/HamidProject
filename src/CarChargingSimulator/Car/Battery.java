@@ -5,4 +5,6 @@ public interface Battery {
     void charge(double amount);
 
     double getRemaining();
+
+
 }

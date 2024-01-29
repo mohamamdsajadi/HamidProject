@@ -5,8 +5,8 @@ import CarChargingSimulator.Sources.Wind;
 
 public class WindPowerSlot extends Slot{
 
-    public WindPowerSlot(Wind energySource) {
-        super(energySource, 80);
+    public WindPowerSlot() {
+        super(new Wind(), 80);
 
     }
 }
