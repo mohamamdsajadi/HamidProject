@@ -22,28 +22,30 @@ public class ChargingStation {
         this.weatherState = weatherState;
     }
 
-    public void addCar(Car car) {
+    public void addCar(Car car) throws InterruptedException {
         car.setArriveTime(LocalDateTime.now());
         System.out.println();
         if (isAllLocationOccupied()) throw new RuntimeException(); // full exception
-        if (cars.size()*2<15) {//each car takes 2 minutes to be charged and the fixed amount time is 15 minutes
+        if (cars.size() * 8 < 15) {//each car takes 2 minutes to be charged and the fixed amount time is 15 minutes
             this.cars.add(car);
             System.out.println("- - - - - - - - - - - - - - - - --  ");
             System.out.println("car " + car + " arrived  in Station's queue " + this.name + " in : " + car.getArriveTime());
             System.out.println("the waiting time is  : " + cars.size() * 2 + " minutes");
             System.out.println("- - - - - - - - - - - - - - - - --  ");
-        }
-        else throw  new RuntimeException();//car wants to  go
-        workingThread = new Thread(() -> {
-                try {
-                    this.startWorking();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            });
-        if (!workingThread.isAlive() && !isAllLocationOccupied()){
-            workingThread.start();
-        }
+        } else {
+            throw new RuntimeException();
+
+        }//car wants to  go
+//        workingThread = new Thread(() -> {
+//                try {
+//                    this.startWorking();
+//                } catch (InterruptedException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            });
+//        if (!workingThread.isAlive() && !isAllLocationOccupied()){
+//            workingThread.start();
+//        }
     }
 
     public void addLocation(Location location) {
@@ -125,38 +127,50 @@ public class ChargingStation {
         Thread.sleep(2000);
     }
 
-    public synchronized   void startWorking() throws InterruptedException {
+    private List<Thread> threads = new ArrayList<>();
+
+    public synchronized void startWorking() throws InterruptedException {
         Random random = new Random();
-        while (!this.cars.isEmpty()){
-            Thread t = new Thread(() ->{
-            int locationIndex = random.nextInt(0,locations.size()) ;
-            Location location = locations.get(locationIndex);
-            if (!location.isOccupied()){
-                Car car = this.cars.poll();
-                System.out.println();
-                location.setCar(car);
-                System.out.println(" + + + + + + + + + + + + + + ++ ");
-                System.out.println("car " + car + " went  to location :  " + location.getName());
-                System.out.println(" + + + + + + + + + + + + + + ++ ");
-                try {
-                    location.charge();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+
+        while (!cars.isEmpty()) {
+            Car car = this.cars.poll();
+            Thread thread = new Thread(() -> {
+                int locationIndex = random.nextInt(0, locations.size());
+                Location location = locations.get(locationIndex);
+                if (!location.isOccupied()) {
+                    System.out.println();
+                    location.setCar(car);
+                    System.out.println(" + + + + + + + + + + + + + + ++ ");
+                    System.out.println("car " + car + " went  to location :  " + location.getName());
+                    System.out.println(" + + + + + + + + + + + + + + ++ ");
+                    try {
+                        location.charge();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
+            });
+            threads.add(thread);
+        }
+        threads.forEach(x -> x.start());
+        threads.forEach(x-> {
+            try {
+                x.join();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
-            }
-            );
-            t.start();
+        });
+
+
+    }
+
+
+    public boolean isAllLocationOccupied() {
+        for (Location e : locations
+        ) {
+            if (!e.isOccupied()) return false;
 
         }
-
-        }
-        public boolean isAllLocationOccupied() {
-            for (Location e: locations
-                 ) {
-                if (!e.isOccupied()) return false;
-
-            }
-            return true;
-        }
+        return true;
+    }
 }

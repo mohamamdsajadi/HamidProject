@@ -25,7 +25,7 @@ public class ElectricalBatteryTypeB implements Battery {
     @Override
     public void charge(double amount) {
 
-        remainingCharge +=amount;
+        remainingCharge += amount;
     }
 
     @Override

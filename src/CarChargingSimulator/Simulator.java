@@ -60,12 +60,12 @@ public class Simulator  {
         cars.add(carA);
         cars.add(carB);
         cars.add(carC);
-        cars.add(carD);
-        cars.add(carE);
-        cars.add(carF);
-        cars.add(carG);
-        cars.add(carH);
-        cars.add(carI);
+//        cars.add(carD);
+//        cars.add(carE);
+//        cars.add(carF);
+//        cars.add(carG);
+//        cars.add(carH);
+//        cars.add(carI);
         chargingStationA.addLocation(location);
         chargingStationA.addLocation(location2);
         chargingStationA.addLocation(location3);
@@ -79,7 +79,9 @@ public class Simulator  {
         stations.add(chargingStationB);
         stations.add(chargingStationC);
         while (!cars.isEmpty()) {
+
             addCarToStation(cars.remove(0), 0);
+
 
         }
 
@@ -87,18 +89,21 @@ public class Simulator  {
     /* the car arrived and check if all locations are occupied or the remaining time to wait is more than 15 minutes returns
     an exception
     */
-    public void addCarToStation(Car car, int i) {
+    public void addCarToStation(Car car, int i) throws InterruptedException {
         ChargingStation station = stations.get(i);
+
         try {
             station.addCar(car);
         } catch (Exception e) {
-            if (i == 2) {
-                addCarToStation(car, 0);
-            } else {
-                addCarToStation(car, i + 1);
-            }
+//            if (i == 2) {
+//                addCarToStation(car, 0);
+//            } else {
+//                addCarToStation(car, i + 1);
+//            }
+            station.startWorking();
 
         }
+
 
 
     }

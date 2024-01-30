@@ -4,7 +4,7 @@ import CarChargingSimulator.Car.Car;
 
 import java.sql.SQLOutput;
 
-public class Location {
+public class  Location {
 
     private ChargingStation chargingStation;
     private String name;
@@ -12,7 +12,7 @@ public class Location {
     private Slot slot;
 
 
-    private Car car;
+   volatile private Car car;
 
     public Location(String name, Slot slot, ChargingStation chargingStation) {
         this.name = name;
@@ -24,24 +24,24 @@ public class Location {
         return this.car != null;
     }
 
-    public  void charge() throws InterruptedException {
+    public synchronized void charge() throws InterruptedException {
         Thread.sleep(2000);
         System.out.println();
-        System.out.println("*******************************************************");
+//        System.out.println("*******************************************************");
         Thread.sleep(1000);
-            System.out.println("remaining amount in slot of location < " + this.getName() + " > in  "+this.chargingStation.getName()+" is " + slot.getCurrentAmount());
+            System.out.println("remaining amount in slot for < " + this.getName() + " > in  "+this.chargingStation.getName()+" is " + slot.getCurrentAmount());
         Thread.sleep(1000);
-        System.out.println("*******************************************************");
+//        System.out.println("*******************************************************");
         System.out.println();
         Thread.sleep(1000);
         System.out.println();
         System.out.println();
         Thread.sleep(2000);
-        System.out.println("----------------------------------------------------------------");
+//        System.out.println("----------------------------------------------------------------");
         Thread.sleep(1000);
         System.out.println("Car :" + car + "\n" + "with Battery status : " + car.getBattery());
         Thread.sleep(1000);
-        System.out.println("----------------------------------------------------------------");
+//        System.out.println("----------------------------------------------------------------");
         Thread.sleep(1000);
         System.out.println();
         Thread.sleep(2000);
@@ -112,7 +112,7 @@ public class Location {
         return car;
     }
 
-    public void setCar(Car car) {
+    public synchronized void setCar(Car car) {
         this.car = car;
     }
 
