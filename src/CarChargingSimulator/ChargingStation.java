@@ -13,6 +13,7 @@ public class ChargingStation {
 
     private WeatherState weatherState;
 
+    private Thread workingThread;
 
     public ChargingStation(String name, WeatherState weatherState) {
         this.name = name;
@@ -23,9 +24,26 @@ public class ChargingStation {
 
     public void addCar(Car car) {
         car.setArriveTime(LocalDateTime.now());
-        if (cars.size()*2<15)//each car takes 2 minutes to be charged and the fixed amount time is 15 minuet
+        System.out.println();
+        if (isAllLocationOccupied()) throw new RuntimeException(); // full exception
+        if (cars.size()*2<15) {//each car takes 2 minutes to be charged and the fixed amount time is 15 minutes
             this.cars.add(car);
-        else throw  new RuntimeException();
+            System.out.println("- - - - - - - - - - - - - - - - --  ");
+            System.out.println("car " + car + " arrived  in Station's queue " + this.name + " in : " + car.getArriveTime());
+            System.out.println("the waiting time is  : " + cars.size() * 2 + " minutes");
+            System.out.println("- - - - - - - - - - - - - - - - --  ");
+        }
+        else throw  new RuntimeException();//car wants to  go
+        workingThread = new Thread(() -> {
+                try {
+                    this.startWorking();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+        if (!workingThread.isAlive() && !isAllLocationOccupied()){
+            workingThread.start();
+        }
     }
 
     public void addLocation(Location location) {
@@ -67,6 +85,7 @@ public class ChargingStation {
     public void refillSource(Location location) throws InterruptedException {
         String energySourceType = location.getSlot().getEnergySource().getClass().getSimpleName();
         String weatherStatus = weatherState.getClass().getSimpleName();
+        //should be complete
         if (energySourceType.equalsIgnoreCase("Water")) {
             if (weatherStatus.equals("RainyWeather")) {
                 System.out.println("energy generating with rain ... ");
@@ -80,7 +99,7 @@ public class ChargingStation {
 
     }
 
-    private void showProcessBar() throws InterruptedException {
+    public void showProcessBar() throws InterruptedException {
         int totalProgress = 50;
         int currentProgress = 0;
 
@@ -106,15 +125,38 @@ public class ChargingStation {
         Thread.sleep(2000);
     }
 
-    public void startWorking() throws InterruptedException {
+    public synchronized   void startWorking() throws InterruptedException {
         Random random = new Random();
         while (!this.cars.isEmpty()){
+            Thread t = new Thread(() ->{
             int locationIndex = random.nextInt(0,locations.size()) ;
             Location location = locations.get(locationIndex);
             if (!location.isOccupied()){
-                location.setCar(this.cars.poll());
-                location.charge();
+                Car car = this.cars.poll();
+                System.out.println();
+                location.setCar(car);
+                System.out.println(" + + + + + + + + + + + + + + ++ ");
+                System.out.println("car " + car + " went  to location :  " + location.getName());
+                System.out.println(" + + + + + + + + + + + + + + ++ ");
+                try {
+                    location.charge();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
+            }
+            );
+            t.start();
+
         }
-    }
+
+        }
+        public boolean isAllLocationOccupied() {
+            for (Location e: locations
+                 ) {
+                if (!e.isOccupied()) return false;
+
+            }
+            return true;
+        }
 }

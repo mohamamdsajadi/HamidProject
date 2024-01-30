@@ -24,12 +24,12 @@ public class Location {
         return this.car != null;
     }
 
-    public void charge() throws InterruptedException {
+    public  void charge() throws InterruptedException {
         Thread.sleep(2000);
         System.out.println();
         System.out.println("*******************************************************");
         Thread.sleep(1000);
-            System.out.println("remaining amount in slot " + slot.getCurrentAmount());
+            System.out.println("remaining amount in slot of location < " + this.getName() + " > in  "+this.chargingStation.getName()+" is " + slot.getCurrentAmount());
         Thread.sleep(1000);
         System.out.println("*******************************************************");
         System.out.println();
@@ -46,7 +46,8 @@ public class Location {
         System.out.println();
         Thread.sleep(2000);
 
-        System.out.println("en train de charging ... ");
+        System.out.println(" the car " + car +" in "+ getName() +" in  "+ chargingStation.getName()+" is charging ... ");
+        chargingStation.showProcessBar();
         double carBatteryRemaining = car.getBattery().getRemaining();
         double carBatteryCapacity = car.getBattery().getCapacity();
         if (carBatteryCapacity - carBatteryRemaining > 0) {
@@ -63,7 +64,7 @@ public class Location {
                 System.out.println();
                 System.out.println("##########################################################");
                 Thread.sleep(1000);
-                System.out.println("battery status after this charge pump : " + car.getBattery());
+                System.out.println(" in  :{ "+chargingStation.getName()+" }  the  :"+ car.getCarName() +" ----> battery status after this charge pump : " + car.getBattery());
                 Thread.sleep(1000);
                 System.out.println("remaining amount in slot " + slot.getCurrentAmount());
                 Thread.sleep(1000);
@@ -74,7 +75,7 @@ public class Location {
             }
 
         } else {
-            System.out.println("the car is gone ");
+            System.out.println("the  "+ car.getCarName()+"  is gone ");
             detach();
         }
 
@@ -85,13 +86,9 @@ public class Location {
         System.out.println();
         System.out.println(" -------= IN  refill function =---------");
         System.out.println();
-        System.out.println("the Charge Slot is Empty  ....");
-        System.out.println("now we are refilling it");
+        System.out.println("the Charge Slot in  "+this.getName()+" is Empty  .... now we are refilling it");
         this.slot.chargeSlot();
-        System.out.println("refilled the current amount is : " + slot.getCurrentAmount());
-        System.out.println();
-        System.out.println("----------= END OF REFILL =-------------");
-        System.out.println();
+        System.out.println("refilled the current amount slot in  "+ this.getName() +" : " + slot.getCurrentAmount() +"\n----------= END OF REFILL =-------------\n");
     }
 
     private void detach() {
