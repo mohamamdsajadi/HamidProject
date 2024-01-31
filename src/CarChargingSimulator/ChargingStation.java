@@ -1,6 +1,7 @@
 package CarChargingSimulator;
 
 import CarChargingSimulator.Car.Car;
+import Exceptions.*;
 import Weather.WeatherState;
 
 import java.time.LocalDateTime;
@@ -22,10 +23,10 @@ public class ChargingStation {
         this.weatherState = weatherState;
     }
 
-    public void addCar(Car car) throws InterruptedException {
+    public synchronized void addCar(Car car) throws InterruptedException, TimeLimitForCarException, StationQueueIsFullException {
         car.setArriveTime(LocalDateTime.now());
         System.out.println();
-        if (isAllLocationOccupied()) throw new RuntimeException(); // full exception
+        if (isAllLocationOccupied()) throw new StationQueueIsFullException(this.toString()); // full exception
         if (cars.size() * 8 < 15) {//each car takes 2 minutes to be charged and the fixed amount time is 15 minutes
             this.cars.add(car);
             System.out.println("- - - - - - - - - - - - - - - - --  ");
@@ -33,7 +34,7 @@ public class ChargingStation {
             System.out.println("the waiting time is  : " + cars.size() * 2 + " minutes");
             System.out.println("- - - - - - - - - - - - - - - - --  ");
         } else {
-            throw new RuntimeException();
+            throw new TimeLimitForCarException(car.getCarName());
 
         }//car wants to  go
 //        workingThread = new Thread(() -> {
@@ -84,7 +85,7 @@ public class ChargingStation {
         this.cars = cars;
     }
 
-    public void refillSource(Location location) throws InterruptedException {
+    public void refillSource(Location location) throws InterruptedException, BadWeatherConditionForWaterTurbines, BadWeatherConditionForSolarCharging, BadWeatherConditionForWindyTurbines {
         String energySourceType = location.getSlot().getEnergySource().getClass().getSimpleName();
         String weatherStatus = weatherState.getClass().getSimpleName();
         //should be complete
@@ -95,14 +96,36 @@ public class ChargingStation {
                 location.getSlot().getEnergySource().energyGenerating(2000);
             } else {
                 System.out.println("we are in another weather condition ... can't fill this resource");
-                throw new RuntimeException();
+                throw new BadWeatherConditionForWaterTurbines();
             }
+        }
+        else if(energySourceType.equalsIgnoreCase("Solar")){
+            if (weatherStatus.equals("SunnyWeather")) {
+                System.out.println("solar energy generating ... ");
+                showProcessBar();
+                location.getSlot().getEnergySource().energyGenerating(2000);
+            } else {
+                System.out.println("we are in another weather condition ... can't fill this resource");
+                throw new BadWeatherConditionForSolarCharging();
+            }
+
+        }
+        else {
+            if (weatherStatus.equals("WindyWeather")) {
+                System.out.println("windy energy generating ... ");
+                showProcessBar();
+                location.getSlot().getEnergySource().energyGenerating(2000);
+            } else {
+                System.out.println("we are in another weather condition ... can't fill this resource");
+                throw new BadWeatherConditionForWindyTurbines();
+            }
+
         }
 
     }
 
     public void showProcessBar() throws InterruptedException {
-        int totalProgress = 50;
+        int totalProgress = 40;
         int currentProgress = 0;
 
         System.out.print("Progress: [");
@@ -136,7 +159,12 @@ public class ChargingStation {
             Car car = this.cars.poll();
             Thread thread = new Thread(() -> {
                 int locationIndex = random.nextInt(0, locations.size());
-                Location location = locations.get(locationIndex);
+                Location location = locations.remove(locationIndex);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
                 if (!location.isOccupied()) {
                     System.out.println();
                     location.setCar(car);
@@ -146,6 +174,14 @@ public class ChargingStation {
                     try {
                         location.charge();
                     } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    } catch (EnergyExhaustedException e) {
+                        throw new RuntimeException(e);
+                    } catch (BadWeatherConditionForWaterTurbines e) {
+                        throw new RuntimeException(e);
+                    } catch (BadWeatherConditionForSolarCharging e) {
+                        throw new RuntimeException(e);
+                    } catch (BadWeatherConditionForWindyTurbines e) {
                         throw new RuntimeException(e);
                     }
                 }

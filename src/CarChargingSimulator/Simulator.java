@@ -3,15 +3,17 @@ package CarChargingSimulator;
 import CarChargingSimulator.Car.Car;
 import CarChargingSimulator.Car.ElectricalBatteryTypeA;
 import CarChargingSimulator.Car.ElectricalBatteryTypeB;
+import Exceptions.StationQueueIsFullException;
+import Exceptions.TimeLimitForCarException;
 import Weather.WeatherState;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Simulator  {
+public class Simulator {
     private List<ChargingStation> stations;
     private WeatherState weatherState;
-    private List<Car> cars;
+    private volatile List<Car> cars;
 
     public Simulator() {
         this.cars = new ArrayList<>();
@@ -35,12 +37,13 @@ public class Simulator  {
 //        weatherState.getWeatherStatus();
     }
 
+    static int i = 0;
     public void initializeAndStart() throws InterruptedException {
         ChargingStation chargingStationA = new ChargingStation("StationA", weatherState);
-        ChargingStation chargingStationB = new ChargingStation("StationA", weatherState);
-        ChargingStation chargingStationC = new ChargingStation("StationA", weatherState);
-        Car carA = new Car("123", "Car A", new ElectricalBatteryTypeA(0));
-        Car carB = new Car("456", "Car B", new ElectricalBatteryTypeB(15));
+        ChargingStation chargingStationB = new ChargingStation("StationB", weatherState);
+        ChargingStation chargingStationC = new ChargingStation("StationC", weatherState);
+        Car carA = new Car("123", "Car A", new ElectricalBatteryTypeA(70));
+        Car carB = new Car("456", "Car B", new ElectricalBatteryTypeB(80));
         Car carC = new Car("789", "Car C", new ElectricalBatteryTypeA(20));
         Car carD = new Car("101", "Car D", new ElectricalBatteryTypeA(30));
         Car carE = new Car("112", "Car E", new ElectricalBatteryTypeB(50));
@@ -51,17 +54,17 @@ public class Simulator  {
         Location location = new Location("Location 1", new WaterPowerSlot(), chargingStationA);
         Location location2 = new Location("Location 2", new SolarPowerSlot(), chargingStationA);
         Location location3 = new Location("Location 3", new WindPowerSlot(), chargingStationA);
-        Location location1B = new Location("Location 1", new WaterPowerSlot(), chargingStationA);
-        Location location2B = new Location("Location 2", new SolarPowerSlot(), chargingStationA);
-        Location location3B = new Location("Location 3", new WindPowerSlot(), chargingStationA);
-        Location location1C = new Location("Location 1", new WaterPowerSlot(), chargingStationA);
-        Location location2C = new Location("Location 2", new SolarPowerSlot(), chargingStationA);
-        Location location3C = new Location("Location 3", new WindPowerSlot(), chargingStationA);
+        Location location1B = new Location("Location 1", new WaterPowerSlot(), chargingStationB);
+        Location location2B = new Location("Location 2", new SolarPowerSlot(), chargingStationB);
+        Location location3B = new Location("Location 3", new WindPowerSlot(), chargingStationB);
+        Location location1C = new Location("Location 1", new WaterPowerSlot(), chargingStationC);
+        Location location2C = new Location("Location 2", new SolarPowerSlot(), chargingStationC);
+        Location location3C = new Location("Location 3", new WindPowerSlot(), chargingStationC);
         cars.add(carA);
         cars.add(carB);
         cars.add(carC);
-//        cars.add(carD);
-//        cars.add(carE);
+        cars.add(carD);
+        cars.add(carE);
 //        cars.add(carF);
 //        cars.add(carG);
 //        cars.add(carH);
@@ -78,30 +81,41 @@ public class Simulator  {
         stations.add(chargingStationA);
         stations.add(chargingStationB);
         stations.add(chargingStationC);
+        cars.forEach(x -> System.out.println("car"));
         while (!cars.isEmpty()) {
 
-            addCarToStation(cars.remove(0), 0);
+            addCarToStation(cars.remove(0));
 
 
         }
+        stations.get(i).startWorking();
 
     }
+
     /* the car arrived and check if all locations are occupied or the remaining time to wait is more than 15 minutes returns
     an exception
     */
-    public void addCarToStation(Car car, int i) throws InterruptedException {
+    public void addCarToStation(Car car ) throws InterruptedException {
         ChargingStation station = stations.get(i);
 
         try {
             station.addCar(car);
-        } catch (Exception e) {
-//            if (i == 2) {
-//                addCarToStation(car, 0);
-//            } else {
-//                addCarToStation(car, i + 1);
-//            }
+        } catch (TimeLimitForCarException | StationQueueIsFullException e) {
+            System.out.println(e.getMessage());
             station.startWorking();
+            Thread.sleep(3000);
 
+            if (i == 2) {
+                i = 0 ;
+                addCarToStation(car);
+            } else {
+                i++;
+                addCarToStation(car);
+            }
+
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
         }
 
 

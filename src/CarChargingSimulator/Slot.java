@@ -1,6 +1,8 @@
 package CarChargingSimulator;
 
 import CarChargingSimulator.Sources.EnergySource;
+import Exceptions.EnergyExhaustedException;
+import Exceptions.SlotExhaustedException;
 
 public abstract class Slot {
     private EnergySource energySource ;
@@ -33,8 +35,8 @@ public abstract class Slot {
         this.currentAmount = capacity;
     }
 
-    public double harvest(double amount){
-        if (currentAmount == 0 ) throw  new RuntimeException();
+    public double harvest(double amount  , String location , String station) throws SlotExhaustedException {
+        if (currentAmount == 0 ) throw  new SlotExhaustedException(location , station);
 
         if (amount<=currentAmount){
             currentAmount -= amount;
@@ -48,22 +50,21 @@ public abstract class Slot {
 
         }
     }
-    public void  chargeSlot()throws RuntimeException{
+    public void  chargeSlot() throws RuntimeException, EnergyExhaustedException {
         if (currentAmount == capacity) return;
         try {
 
-        if (currentAmount == 0 ) {
-            this.currentAmount += this.getEnergySource().energyHarvesting(this.getCapacity());
-            chargeSlot();
-        }
-        if (currentAmount!=0  && currentAmount<capacity){
-            this.currentAmount += this.getEnergySource().energyHarvesting(capacity-currentAmount);
+        if (Double.compare(currentAmount,0)==0  && currentAmount<capacity) {
+            this.currentAmount += this.getEnergySource().energyHarvesting(capacity - currentAmount);
             chargeSlot();
         }
 
-        }catch (Exception e ){
+        }catch (EnergyExhaustedException e ){
             System.out.println("the source is over ");
-            throw  new RuntimeException();
+            throw  new EnergyExhaustedException(this.energySource.getClass().getSimpleName());
+        }
+        catch (Exception e){
+            throw  e;
         }
     }
 }

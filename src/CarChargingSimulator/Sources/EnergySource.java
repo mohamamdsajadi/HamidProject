@@ -1,5 +1,7 @@
 package CarChargingSimulator.Sources;
 
+import Exceptions.EnergyExhaustedException;
+
 public abstract class EnergySource {
     public EnergySource(int minutesToFull50Unit, double totalAvailableAmount) {
         this.minutesToFull50Unit = minutesToFull50Unit;
@@ -26,7 +28,7 @@ public abstract class EnergySource {
 
     private double TotalAvailableAmount; // total available amount of this resource
 
-    public abstract double energyHarvesting(double amount);
+    public abstract double energyHarvesting(double amount) throws EnergyExhaustedException;
      public   void energyGenerating(double amount){
 
          this.TotalAvailableAmount += amount;

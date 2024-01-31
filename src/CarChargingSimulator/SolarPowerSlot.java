@@ -1,9 +1,10 @@
 package CarChargingSimulator;
 
 import CarChargingSimulator.Sources.Electrical;
+import CarChargingSimulator.Sources.Solar;
 
 public class SolarPowerSlot extends Slot{
     public SolarPowerSlot() {
-        super(new Electrical(), 100);
+        super(new Solar(), 100);
     }
 }

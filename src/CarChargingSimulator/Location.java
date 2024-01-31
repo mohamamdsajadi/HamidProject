@@ -1,6 +1,7 @@
 package CarChargingSimulator;
 
 import CarChargingSimulator.Car.Car;
+import Exceptions.*;
 
 import java.sql.SQLOutput;
 
@@ -24,7 +25,7 @@ public class  Location {
         return this.car != null;
     }
 
-    public synchronized void charge() throws InterruptedException {
+    public synchronized void charge() throws InterruptedException, EnergyExhaustedException, BadWeatherConditionForWaterTurbines, BadWeatherConditionForSolarCharging, BadWeatherConditionForWindyTurbines {
         Thread.sleep(2000);
         System.out.println();
 //        System.out.println("*******************************************************");
@@ -53,13 +54,25 @@ public class  Location {
         if (carBatteryCapacity - carBatteryRemaining > 0) {
             Thread.sleep(1000);
             try {
-                car.getBattery().charge(this.slot.harvest(carBatteryCapacity - carBatteryRemaining));
+                car.getBattery().charge(this.slot.harvest(carBatteryCapacity - carBatteryRemaining , getName() , chargingStation.getName()));
                 Thread.sleep(1000);
-            } catch (Exception e) {
+            } catch (SlotExhaustedException e) {
         Thread.sleep(2000);
+        try {
+
                 reFillSlot();
+        }catch (EnergyExhaustedException e1){
+
+            this.chargingStation.refillSource(this);
+        }
+        catch (Exception e2){
+            throw  e2;
+        }
+
         Thread.sleep(2000);
-            } finally {
+            }
+
+            finally {
                 Thread.sleep(2000);
                 System.out.println();
                 System.out.println("##########################################################");
@@ -82,21 +95,24 @@ public class  Location {
 
     }
 
-    private void reFillSlot() {
-        System.out.println();
-        System.out.println(" -------= IN  refill function =---------");
-        System.out.println();
-        System.out.println("the Charge Slot in  "+this.getName()+" is Empty  .... now we are refilling it");
-        this.slot.chargeSlot();
-        System.out.println("refilled the current amount slot in  "+ this.getName() +" : " + slot.getCurrentAmount() +"\n----------= END OF REFILL =-------------\n");
+    private void reFillSlot() throws EnergyExhaustedException {
+            System.out.println();
+            System.out.println(" -------= IN  refill function =---------");
+            System.out.println();
+            System.out.println("the Charge Slot in  " + this.getName() + " is Empty  .... now we are refilling it");
+            this.slot.chargeSlot();
+            System.out.println("refilled the current amount slot in  " + this.getName() + " : " + slot.getCurrentAmount() + "\n----------= END OF REFILL =-------------\n");
+
     }
 
     private void detach() {
         this.car = null;
     }
 
-    private void chargeSlot() {
+    private void chargeSlot() throws EnergyExhaustedException {
+
         this.slot.getEnergySource().energyHarvesting(this.slot.getCapacity());
+
     }
 
     public String getName() {

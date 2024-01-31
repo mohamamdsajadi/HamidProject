@@ -1,5 +1,7 @@
 package CarChargingSimulator.Sources;
 
+import Exceptions.EnergyExhaustedException;
+
 public class Electrical extends EnergySource {
 
     public Electrical( ) {
@@ -8,8 +10,8 @@ public class Electrical extends EnergySource {
 
 
     @Override
-    public double energyHarvesting(double amount1) {
-        if (getTotalAvailableAmount() == 0) throw new RuntimeException();
+    public double energyHarvesting(double amount1) throws EnergyExhaustedException {
+        if (getTotalAvailableAmount() == 0) throw new EnergyExhaustedException(this.getClass().getSimpleName());
         if (this.getTotalAvailableAmount() - amount1 >= 0) {
             double amount = this.getTotalAvailableAmount() - amount1;
             this.setTotalAvailableAmount(amount);
