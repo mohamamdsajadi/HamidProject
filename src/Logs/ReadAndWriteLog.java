@@ -5,8 +5,8 @@ import java.time.LocalDateTime;
 
 public class ReadAndWriteLog {
        static String  fileName = ".\\src\\Logs\\logs.txt";
-    public static  void writeLog(String station , String location , String car , String message){
-        String log  = String.format( "at : "+ LocalDateTime.now()  + " in {} in {} for {}   log  ->[ {} ]" , station , location , car , message);
+    public static  void writeLog( String message){
+        String log  =  "at : "+ LocalDateTime.now()  + "   log  ->[ {  "+message+ "} ]"   ;
         System.out.println(log);
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
 
@@ -22,7 +22,7 @@ public class ReadAndWriteLog {
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String line;
         while ((line = bufferedReader.readLine()) != null) {
-            System.out.println(line);
+            ReadAndWriteLog.writeLog(line);
         }
         bufferedReader.close();
 
@@ -30,13 +30,18 @@ public class ReadAndWriteLog {
 
     public static void deleteLog() {
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, false))) {
 
             writer.write(" ");
             writer.newLine();
             writer.close();
+            Thread.sleep(1000);
+            System.out.println("log file is empty now ... ");
         } catch (IOException e) {
             System.err.println("Error : " + e.getMessage());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
+
     }
 }

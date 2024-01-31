@@ -5,6 +5,7 @@ import CarChargingSimulator.Car.ElectricalBatteryTypeA;
 import CarChargingSimulator.Car.ElectricalBatteryTypeB;
 import Exceptions.StationQueueIsFullException;
 import Exceptions.TimeLimitForCarException;
+import Logs.ReadAndWriteLog;
 import Weather.WeatherState;
 
 import java.util.ArrayList;
@@ -81,7 +82,21 @@ public class Simulator {
         stations.add(chargingStationA);
         stations.add(chargingStationB);
         stations.add(chargingStationC);
-        cars.forEach(x -> System.out.println("car"));
+        cars.forEach(x -> {ReadAndWriteLog.writeLog("car" + x.getCarName() + " is created and ready ");
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        stations.forEach(x ->
+                {ReadAndWriteLog.writeLog("station" + x.getName() + " is created  ready with these locations : " +x.getLocations());
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
         while (!cars.isEmpty()) {
 
             addCarToStation(cars.remove(0));
@@ -101,7 +116,7 @@ public class Simulator {
         try {
             station.addCar(car);
         } catch (TimeLimitForCarException | StationQueueIsFullException e) {
-            System.out.println(e.getMessage());
+            ReadAndWriteLog.writeLog(e.getMessage());
             station.startWorking();
             Thread.sleep(3000);
 
@@ -115,7 +130,7 @@ public class Simulator {
 
         }
         catch (Exception e) {
-            System.out.println(e.getMessage());
+            ReadAndWriteLog.writeLog(e.getMessage());
         }
 
 

@@ -1,5 +1,7 @@
 package Weather;
 
+import Logs.ReadAndWriteLog;
+
 public class RainyWeather implements WeatherState {
 
     @Override
@@ -8,8 +10,8 @@ public class RainyWeather implements WeatherState {
         int screenHeight = 20;
         int numDrops = 100;
 
-        System.out.println("WEATHER IS RAINY ...");
-        System.out.println("== === ==== ====== ==== === ==== ====== ========= ==== ==== === === ==  = = = = =");
+        ReadAndWriteLog.writeLog("WEATHER IS RAINY ...");
+        ReadAndWriteLog.writeLog("== === ==== ====== ==== === ==== ====== ========= ==== ==== === === ==  = = = = =");
         for (int m = 0; m < 15; m++) {
             char[][] screen = new char[screenHeight][screenWidth];
             for (int i = 0; i < numDrops; i++) {
@@ -27,7 +29,7 @@ public class RainyWeather implements WeatherState {
                         System.out.print(' ');
                     }
                 }
-                System.out.println();
+                ReadAndWriteLog.writeLog("\n");
             }
 
             // Pause for a short duration

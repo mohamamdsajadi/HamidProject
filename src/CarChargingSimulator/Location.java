@@ -2,6 +2,7 @@ package CarChargingSimulator;
 
 import CarChargingSimulator.Car.Car;
 import Exceptions.*;
+import Logs.ReadAndWriteLog;
 
 import java.sql.SQLOutput;
 
@@ -27,27 +28,27 @@ public class  Location {
 
     public synchronized void charge() throws InterruptedException, EnergyExhaustedException, BadWeatherConditionForWaterTurbines, BadWeatherConditionForSolarCharging, BadWeatherConditionForWindyTurbines {
         Thread.sleep(2000);
-        System.out.println();
-//        System.out.println("*******************************************************");
+        ReadAndWriteLog.writeLog("\n");
+//        ReadAndWriteLog.writeLog("*******************************************************");
         Thread.sleep(1000);
-            System.out.println("remaining amount in slot for < " + this.getName() + " > in  "+this.chargingStation.getName()+" is " + slot.getCurrentAmount());
+            ReadAndWriteLog.writeLog("remaining amount in slot for < " + this.getName() + " > in  "+this.chargingStation.getName()+" is " + slot.getCurrentAmount());
         Thread.sleep(1000);
-//        System.out.println("*******************************************************");
-        System.out.println();
+//        ReadAndWriteLog.writeLog("*******************************************************");
+        ReadAndWriteLog.writeLog("\n");
         Thread.sleep(1000);
-        System.out.println();
-        System.out.println();
+        ReadAndWriteLog.writeLog("\n");
+        ReadAndWriteLog.writeLog("\n");
         Thread.sleep(2000);
-//        System.out.println("----------------------------------------------------------------");
+//        ReadAndWriteLog.writeLog("----------------------------------------------------------------");
         Thread.sleep(1000);
-        System.out.println("Car :" + car + "\n" + "with Battery status : " + car.getBattery());
+        ReadAndWriteLog.writeLog("Car :" + car + "\n" + "with Battery status : " + car.getBattery());
         Thread.sleep(1000);
-//        System.out.println("----------------------------------------------------------------");
+//        ReadAndWriteLog.writeLog("----------------------------------------------------------------");
         Thread.sleep(1000);
-        System.out.println();
+        ReadAndWriteLog.writeLog("\n");
         Thread.sleep(2000);
 
-        System.out.println(" the car " + car +" in "+ getName() +" in  "+ chargingStation.getName()+" is charging ... ");
+        ReadAndWriteLog.writeLog(" the car " + car +" in "+ getName() +" in  "+ chargingStation.getName()+" is charging ... ");
         chargingStation.showProcessBar();
         double carBatteryRemaining = car.getBattery().getRemaining();
         double carBatteryCapacity = car.getBattery().getCapacity();
@@ -74,21 +75,21 @@ public class  Location {
 
             finally {
                 Thread.sleep(2000);
-                System.out.println();
-                System.out.println("##########################################################");
+                ReadAndWriteLog.writeLog("\n");
+                ReadAndWriteLog.writeLog("##########################################################");
                 Thread.sleep(1000);
-                System.out.println(" in  :{ "+chargingStation.getName()+" }  the  :"+ car.getCarName() +" ----> battery status after this charge pump : " + car.getBattery());
+                ReadAndWriteLog.writeLog(" in  :{ "+chargingStation.getName()+" }  the  :"+ car.getCarName() +" ----> battery status after this charge pump : " + car.getBattery());
                 Thread.sleep(1000);
-                System.out.println("remaining amount in slot " + slot.getCurrentAmount());
+                ReadAndWriteLog.writeLog("remaining amount in slot " + slot.getCurrentAmount());
                 Thread.sleep(1000);
-                System.out.println("##########################################################");
-                System.out.println();
+                ReadAndWriteLog.writeLog("##########################################################");
+                ReadAndWriteLog.writeLog("\n");
                 Thread.sleep(2000);
                 charge();
             }
 
         } else {
-            System.out.println("the  "+ car.getCarName()+"  is gone ");
+            ReadAndWriteLog.writeLog("the  "+ car.getCarName()+"  is gone ");
             detach();
         }
 
@@ -96,12 +97,12 @@ public class  Location {
     }
 
     private void reFillSlot() throws EnergyExhaustedException {
-            System.out.println();
-            System.out.println(" -------= IN  refill function =---------");
-            System.out.println();
-            System.out.println("the Charge Slot in  " + this.getName() + " is Empty  .... now we are refilling it");
+            ReadAndWriteLog.writeLog("\n");
+            ReadAndWriteLog.writeLog(" -------= IN  refill function =---------");
+            ReadAndWriteLog.writeLog("\n");
+            ReadAndWriteLog.writeLog("the Charge Slot in  " + this.getName() + " is Empty  .... now we are refilling it");
             this.slot.chargeSlot();
-            System.out.println("refilled the current amount slot in  " + this.getName() + " : " + slot.getCurrentAmount() + "\n----------= END OF REFILL =-------------\n");
+            ReadAndWriteLog.writeLog("refilled the current amount slot in  " + this.getName() + " : " + slot.getCurrentAmount() + "\n----------= END OF REFILL =-------------\n");
 
     }
 
@@ -138,5 +139,12 @@ public class  Location {
 
     public void setSlot(Slot slot) {
         this.slot = slot;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

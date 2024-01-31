@@ -22,10 +22,14 @@ public class Main {
             System.out.println("3.start simulating");
             Scanner input = new Scanner(in);
             int x = input.nextInt();
-            if (x == 0)
-                ReadAndWriteLog.readLog();
-            else if (x == 1) ReadAndWriteLog.deleteLog();
+            if (x == 1){
+                ReadAndWriteLog.writeLog("user wants to see logs");
+                ReadAndWriteLog.readLog();}
+            else if (x ==2) {
+                ReadAndWriteLog.writeLog("user wants delete logs");
+                ReadAndWriteLog.deleteLog();}
             else {
+                ReadAndWriteLog.writeLog(" -- user START Simulation --");
                 Simulator simulator = new Simulator();
                 simulator.setWeatherState(new RainyWeather());
                 simulator.initializeAndStart();
@@ -34,6 +38,6 @@ public class Main {
 //        LocalDateTime time = LocalDateTime.now();
 //        Thread.sleep(2000);
 //        LocalDateTime time1 = LocalDateTime.now();
-//        System.out.println(time.compareTo(time1));
+//        ReadAndWriteLog.writeLog(time.compareTo(time1));
     }
 }

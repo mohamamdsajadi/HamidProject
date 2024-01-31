@@ -1,5 +1,7 @@
 package Weather;
 
+import Logs.ReadAndWriteLog;
+
 public class SunnyWeather implements WeatherState {
 
 
@@ -21,7 +23,7 @@ public class SunnyWeather implements WeatherState {
                         System.out.print(' ');
                     }
                 }
-                System.out.println();
+                ReadAndWriteLog.writeLog("\n");
             }
 
             // Pause for a short duration

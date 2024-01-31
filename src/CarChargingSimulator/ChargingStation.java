@@ -2,6 +2,7 @@ package CarChargingSimulator;
 
 import CarChargingSimulator.Car.Car;
 import Exceptions.*;
+import Logs.ReadAndWriteLog;
 import Weather.WeatherState;
 
 import java.time.LocalDateTime;
@@ -25,14 +26,14 @@ public class ChargingStation {
 
     public synchronized void addCar(Car car) throws InterruptedException, TimeLimitForCarException, StationQueueIsFullException {
         car.setArriveTime(LocalDateTime.now());
-        System.out.println();
+        ReadAndWriteLog.writeLog("\n"  );
         if (isAllLocationOccupied()) throw new StationQueueIsFullException(this.toString()); // full exception
         if (cars.size() * 8 < 15) {//each car takes 2 minutes to be charged and the fixed amount time is 15 minutes
             this.cars.add(car);
-            System.out.println("- - - - - - - - - - - - - - - - --  ");
-            System.out.println("car " + car + " arrived  in Station's queue " + this.name + " in : " + car.getArriveTime());
-            System.out.println("the waiting time is  : " + cars.size() * 2 + " minutes");
-            System.out.println("- - - - - - - - - - - - - - - - --  ");
+            ReadAndWriteLog.writeLog("- - - - - - - - - - - - - - - - --  ");
+            ReadAndWriteLog.writeLog("car " + car + " arrived  in Station's queue " + this.name + " in : " + car.getArriveTime());
+            ReadAndWriteLog.writeLog("the waiting time is  : " + cars.size() * 2 + " minutes");
+            ReadAndWriteLog.writeLog("- - - - - - - - - - - - - - - - --  ");
         } else {
             throw new TimeLimitForCarException(car.getCarName());
 
@@ -91,32 +92,32 @@ public class ChargingStation {
         //should be complete
         if (energySourceType.equalsIgnoreCase("Water")) {
             if (weatherStatus.equals("RainyWeather")) {
-                System.out.println("energy generating with rain ... ");
+                ReadAndWriteLog.writeLog("energy generating with rain ... ");
                 showProcessBar();
                 location.getSlot().getEnergySource().energyGenerating(2000);
             } else {
-                System.out.println("we are in another weather condition ... can't fill this resource");
+                ReadAndWriteLog.writeLog("we are in another weather condition ... can't fill this resource");
                 throw new BadWeatherConditionForWaterTurbines();
             }
         }
         else if(energySourceType.equalsIgnoreCase("Solar")){
             if (weatherStatus.equals("SunnyWeather")) {
-                System.out.println("solar energy generating ... ");
+                ReadAndWriteLog.writeLog("solar energy generating ... ");
                 showProcessBar();
                 location.getSlot().getEnergySource().energyGenerating(2000);
             } else {
-                System.out.println("we are in another weather condition ... can't fill this resource");
+                ReadAndWriteLog.writeLog("we are in another weather condition ... can't fill this resource");
                 throw new BadWeatherConditionForSolarCharging();
             }
 
         }
         else {
             if (weatherStatus.equals("WindyWeather")) {
-                System.out.println("windy energy generating ... ");
+                ReadAndWriteLog.writeLog("windy energy generating ... ");
                 showProcessBar();
                 location.getSlot().getEnergySource().energyGenerating(2000);
             } else {
-                System.out.println("we are in another weather condition ... can't fill this resource");
+                ReadAndWriteLog.writeLog("we are in another weather condition ... can't fill this resource");
                 throw new BadWeatherConditionForWindyTurbines();
             }
 
@@ -146,7 +147,7 @@ public class ChargingStation {
             Thread.sleep(100);
         }
 
-        System.out.println("\nProgress complete!");
+        ReadAndWriteLog.writeLog("\nProgress complete!");
         Thread.sleep(2000);
     }
 
@@ -166,11 +167,11 @@ public class ChargingStation {
                     throw new RuntimeException(e);
                 }
                 if (!location.isOccupied()) {
-                    System.out.println();
+                    ReadAndWriteLog.writeLog("\n");
                     location.setCar(car);
-                    System.out.println(" + + + + + + + + + + + + + + ++ ");
-                    System.out.println("car " + car + " went  to location :  " + location.getName());
-                    System.out.println(" + + + + + + + + + + + + + + ++ ");
+                    ReadAndWriteLog.writeLog(" + + + + + + + + + + + + + + ++ ");
+                    ReadAndWriteLog.writeLog("car " + car + " went  to location :  " + location.getName());
+                    ReadAndWriteLog.writeLog(" + + + + + + + + + + + + + + ++ ");
                     try {
                         location.charge();
                     } catch (InterruptedException e) {

@@ -3,6 +3,7 @@ package CarChargingSimulator;
 import CarChargingSimulator.Sources.EnergySource;
 import Exceptions.EnergyExhaustedException;
 import Exceptions.SlotExhaustedException;
+import Logs.ReadAndWriteLog;
 
 public abstract class Slot {
     private EnergySource energySource ;
@@ -60,7 +61,7 @@ public abstract class Slot {
         }
 
         }catch (EnergyExhaustedException e ){
-            System.out.println("the source is over ");
+            ReadAndWriteLog.writeLog("the source is over ");
             throw  new EnergyExhaustedException(this.energySource.getClass().getSimpleName());
         }
         catch (Exception e){
