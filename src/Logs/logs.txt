@@ -1,0 +1,747 @@
+ 
+at : 2024-01-31T08:53:42.296886300   log  ->[ {  car} ]
+at : 2024-01-31T08:53:42.313357300   log  ->[ {  car} ]
+at : 2024-01-31T08:53:42.314355300   log  ->[ {  car} ]
+at : 2024-01-31T08:53:42.314495   log  ->[ {  car} ]
+at : 2024-01-31T08:53:42.315344   log  ->[ {  car} ]
+at : 2024-01-31T08:53:42.315826600   log  ->[ {  
+} ]
+at : 2024-01-31T08:53:42.316511600   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:53:42.328739300   log  ->[ {  car Car{carId='123', carName='Car A'} arrived  in Station's queue StationA in : 2024-01-31T08:53:42.315826600} ]
+at : 2024-01-31T08:53:42.334998800   log  ->[ {  the waiting time is  : 2 minutes} ]
+at : 2024-01-31T08:53:42.336002300   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:53:42.336260800   log  ->[ {  
+} ]
+at : 2024-01-31T08:53:42.337539500   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:53:42.337539500   log  ->[ {  car Car{carId='456', carName='Car B'} arrived  in Station's queue StationA in : 2024-01-31T08:53:42.336260800} ]
+at : 2024-01-31T08:53:42.338537500   log  ->[ {  the waiting time is  : 4 minutes} ]
+at : 2024-01-31T08:53:42.339538500   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:53:42.339538500   log  ->[ {  
+} ]
+at : 2024-01-31T08:53:42.344539100   log  ->[ {  the cars after  Car C can't wait in this line because this station takes time more than 15 minutes} ]
+at : 2024-01-31T08:53:43.357437500   log  ->[ {  
+} ]
+at : 2024-01-31T08:53:43.357437500   log  ->[ {  
+} ]
+at : 2024-01-31T08:53:43.358577200   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:53:43.358577200   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:53:43.360598400   log  ->[ {  car Car{carId='123', carName='Car A'} went  to location :  Location 3} ]
+at : 2024-01-31T08:53:43.360598400   log  ->[ {  car Car{carId='456', carName='Car B'} went  to location :  Location 1} ]
+at : 2024-01-31T08:53:43.361655900   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:53:43.361655900   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:53:45.371585700   log  ->[ {  
+} ]
+at : 2024-01-31T08:53:45.371585700   log  ->[ {  
+} ]
+at : 2024-01-31T08:53:46.389769100   log  ->[ {  remaining amount in slot for < Location 3 > in  StationA is 80.0} ]
+at : 2024-01-31T08:53:46.389769100   log  ->[ {  remaining amount in slot for < Location 1 > in  StationA is 80.0} ]
+at : 2024-01-31T08:53:47.394315100   log  ->[ {  
+} ]
+at : 2024-01-31T08:53:47.395371900   log  ->[ {  
+} ]
+at : 2024-01-31T08:53:48.404246800   log  ->[ {  
+} ]
+at : 2024-01-31T08:53:48.404246800   log  ->[ {  
+} ]
+at : 2024-01-31T08:53:48.406021600   log  ->[ {  
+} ]
+at : 2024-01-31T08:53:48.406021600   log  ->[ {  
+} ]
+at : 2024-01-31T08:53:51.427291900   log  ->[ {  Car :Car{carId='456', carName='Car B'}
+with Battery status : ElectricalBatteryTypeB{capacity=150.0, remainingCharge=80.0}} ]
+at : 2024-01-31T08:53:51.427291900   log  ->[ {  Car :Car{carId='123', carName='Car A'}
+with Battery status : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=70.0}} ]
+at : 2024-01-31T08:53:53.443320100   log  ->[ {  
+} ]
+at : 2024-01-31T08:53:53.443320100   log  ->[ {  
+} ]
+at : 2024-01-31T08:53:55.461861500   log  ->[ {   the car Car{carId='456', carName='Car B'} in Location 1 in  StationA is charging ... } ]
+at : 2024-01-31T08:53:55.461861500   log  ->[ {   the car Car{carId='123', carName='Car A'} in Location 3 in  StationA is charging ... } ]
+at : 2024-01-31T08:53:59.930657800   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T08:53:59.947420100   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T08:54:05.966879600   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:05.968126400   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:54:05.986228500   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:05.986963900   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:54:06.978618400   log  ->[ {   in  :{ StationA }  the  :Car A ----> battery status after this charge pump : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=100.0}} ]
+at : 2024-01-31T08:54:06.995979900   log  ->[ {   in  :{ StationA }  the  :Car B ----> battery status after this charge pump : ElectricalBatteryTypeB{capacity=150.0, remainingCharge=120.0}} ]
+at : 2024-01-31T08:54:07.991095500   log  ->[ {  remaining amount in slot 50.0} ]
+at : 2024-01-31T08:54:08.006353500   log  ->[ {  remaining amount in slot 40.0} ]
+at : 2024-01-31T08:54:09.004687900   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:54:09.005310100   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:09.023208700   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:54:09.024085200   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:13.030519600   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:13.045867700   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:14.037487600   log  ->[ {  remaining amount in slot for < Location 3 > in  StationA is 50.0} ]
+at : 2024-01-31T08:54:14.052682500   log  ->[ {  remaining amount in slot for < Location 1 > in  StationA is 40.0} ]
+at : 2024-01-31T08:54:15.053154600   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:15.068304900   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:16.066205900   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:16.067305100   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:16.082433400   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:16.082944   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:19.091809200   log  ->[ {  Car :Car{carId='123', carName='Car A'}
+with Battery status : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=100.0}} ]
+at : 2024-01-31T08:54:19.110664700   log  ->[ {  Car :Car{carId='456', carName='Car B'}
+with Battery status : ElectricalBatteryTypeB{capacity=150.0, remainingCharge=120.0}} ]
+at : 2024-01-31T08:54:21.102957600   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:21.136631800   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:23.113330900   log  ->[ {   the car Car{carId='123', carName='Car A'} in Location 3 in  StationA is charging ... } ]
+at : 2024-01-31T08:54:23.144591600   log  ->[ {   the car Car{carId='456', carName='Car B'} in Location 1 in  StationA is charging ... } ]
+at : 2024-01-31T08:54:27.566912   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T08:54:27.582484500   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T08:54:29.580810700   log  ->[ {  the  Car A  is gone } ]
+at : 2024-01-31T08:54:29.596273100   log  ->[ {  the  Car B  is gone } ]
+at : 2024-01-31T08:54:32.608510700   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:32.608865600   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:54:32.609749500   log  ->[ {  car Car{carId='789', carName='Car C'} arrived  in Station's queue StationB in : 2024-01-31T08:54:32.608074400} ]
+at : 2024-01-31T08:54:32.610420600   log  ->[ {  the waiting time is  : 2 minutes} ]
+at : 2024-01-31T08:54:32.610856700   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:54:32.611482500   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:32.612481200   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:54:32.612706200   log  ->[ {  car Car{carId='101', carName='Car D'} arrived  in Station's queue StationB in : 2024-01-31T08:54:32.611482500} ]
+at : 2024-01-31T08:54:32.612706200   log  ->[ {  the waiting time is  : 4 minutes} ]
+at : 2024-01-31T08:54:32.612706200   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:54:32.614732900   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:32.615731900   log  ->[ {  the cars after  Car E can't wait in this line because this station takes time more than 15 minutes} ]
+at : 2024-01-31T08:54:33.617574900   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:33.617574900   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:33.618805400   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:54:33.618805400   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:54:33.618805400   log  ->[ {  car Car{carId='789', carName='Car C'} went  to location :  Location 3} ]
+at : 2024-01-31T08:54:33.618805400   log  ->[ {  car Car{carId='101', carName='Car D'} went  to location :  Location 1} ]
+at : 2024-01-31T08:54:33.619804200   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:54:33.620291500   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:54:35.621458500   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:35.621458500   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:36.628284200   log  ->[ {  remaining amount in slot for < Location 1 > in  StationB is 80.0} ]
+at : 2024-01-31T08:54:36.628284200   log  ->[ {  remaining amount in slot for < Location 3 > in  StationB is 80.0} ]
+at : 2024-01-31T08:54:37.641853500   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:37.641853500   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:38.648653600   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:38.648653600   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:38.650060700   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:38.650060700   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:41.662227   log  ->[ {  Car :Car{carId='101', carName='Car D'}
+with Battery status : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=30.0}} ]
+at : 2024-01-31T08:54:41.663133400   log  ->[ {  Car :Car{carId='789', carName='Car C'}
+with Battery status : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=20.0}} ]
+at : 2024-01-31T08:54:43.685942200   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:43.685942200   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:45.698110700   log  ->[ {   the car Car{carId='101', carName='Car D'} in Location 1 in  StationB is charging ... } ]
+at : 2024-01-31T08:54:45.698110700   log  ->[ {   the car Car{carId='789', carName='Car C'} in Location 3 in  StationB is charging ... } ]
+at : 2024-01-31T08:54:50.049444400   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T08:54:50.049444400   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T08:54:56.081281600   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:56.081281600   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:56.082268400   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:54:56.082268400   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:54:57.095068900   log  ->[ {   in  :{ StationB }  the  :Car C ----> battery status after this charge pump : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=100.0}} ]
+at : 2024-01-31T08:54:57.095068900   log  ->[ {   in  :{ StationB }  the  :Car D ----> battery status after this charge pump : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=100.0}} ]
+at : 2024-01-31T08:54:58.099184700   log  ->[ {  remaining amount in slot 0.0} ]
+at : 2024-01-31T08:54:58.099184700   log  ->[ {  remaining amount in slot 10.0} ]
+at : 2024-01-31T08:54:59.108896500   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:54:59.108896500   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:54:59.110063600   log  ->[ {  
+} ]
+at : 2024-01-31T08:54:59.110063600   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:03.132138900   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:03.132138900   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:04.142065300   log  ->[ {  remaining amount in slot for < Location 1 > in  StationB is 10.0} ]
+at : 2024-01-31T08:55:04.142065300   log  ->[ {  remaining amount in slot for < Location 3 > in  StationB is 0.0} ]
+at : 2024-01-31T08:55:05.155901700   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:05.155901700   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:06.174777500   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:06.174777500   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:06.175410800   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:06.175410800   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:09.199975400   log  ->[ {  Car :Car{carId='789', carName='Car C'}
+with Battery status : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=100.0}} ]
+at : 2024-01-31T08:55:09.199975400   log  ->[ {  Car :Car{carId='101', carName='Car D'}
+with Battery status : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=100.0}} ]
+at : 2024-01-31T08:55:11.220229200   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:11.220229200   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:13.229729   log  ->[ {   the car Car{carId='789', carName='Car C'} in Location 3 in  StationB is charging ... } ]
+at : 2024-01-31T08:55:13.229729   log  ->[ {   the car Car{carId='101', carName='Car D'} in Location 1 in  StationB is charging ... } ]
+at : 2024-01-31T08:55:17.586994300   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T08:55:17.608918200   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T08:55:19.589080400   log  ->[ {  the  Car D  is gone } ]
+at : 2024-01-31T08:55:19.621516900   log  ->[ {  the  Car C  is gone } ]
+at : 2024-01-31T08:55:22.625841   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:22.626841200   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:55:22.627841500   log  ->[ {  car Car{carId='112', carName='Car E'} arrived  in Station's queue StationC in : 2024-01-31T08:55:22.625841} ]
+at : 2024-01-31T08:55:22.627841500   log  ->[ {  the waiting time is  : 2 minutes} ]
+at : 2024-01-31T08:55:22.628841800   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:55:23.632989300   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:23.632989300   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:55:23.634112800   log  ->[ {  car Car{carId='112', carName='Car E'} went  to location :  Location 2} ]
+at : 2024-01-31T08:55:23.634112800   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:55:25.640290600   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:26.655923   log  ->[ {  remaining amount in slot for < Location 2 > in  StationC is 100.0} ]
+at : 2024-01-31T08:55:27.678189700   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:28.691450400   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:28.692584500   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:31.701687100   log  ->[ {  Car :Car{carId='112', carName='Car E'}
+with Battery status : ElectricalBatteryTypeB{capacity=150.0, remainingCharge=50.0}} ]
+at : 2024-01-31T08:55:33.720438500   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:35.724790400   log  ->[ {   the car Car{carId='112', carName='Car E'} in Location 2 in  StationC is charging ... } ]
+at : 2024-01-31T08:55:40.098871700   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T08:55:46.134554100   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:46.135167700   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:55:47.145171400   log  ->[ {   in  :{ StationC }  the  :Car E ----> battery status after this charge pump : ElectricalBatteryTypeB{capacity=150.0, remainingCharge=120.0}} ]
+at : 2024-01-31T08:55:48.152169600   log  ->[ {  remaining amount in slot 30.0} ]
+at : 2024-01-31T08:55:49.164042100   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:55:49.164922900   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:53.185094700   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:54.188497600   log  ->[ {  remaining amount in slot for < Location 2 > in  StationC is 30.0} ]
+at : 2024-01-31T08:55:55.196766700   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:56.210016600   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:56.211090800   log  ->[ {  
+} ]
+at : 2024-01-31T08:55:59.222580700   log  ->[ {  Car :Car{carId='112', carName='Car E'}
+with Battery status : ElectricalBatteryTypeB{capacity=150.0, remainingCharge=120.0}} ]
+at : 2024-01-31T08:56:01.245907900   log  ->[ {  
+} ]
+at : 2024-01-31T08:56:03.257269900   log  ->[ {   the car Car{carId='112', carName='Car E'} in Location 2 in  StationC is charging ... } ]
+at : 2024-01-31T08:56:07.617997900   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T08:56:09.650503   log  ->[ {  the  Car E  is gone } ]
+at : 2024-01-31T08:57:55.243401800   log  ->[ {  carCar Ais created and ready } ]
+at : 2024-01-31T08:57:55.356645200   log  ->[ {  carCar Bis created and ready } ]
+at : 2024-01-31T08:57:55.471221400   log  ->[ {  carCar Cis created and ready } ]
+at : 2024-01-31T08:57:55.581301800   log  ->[ {  carCar Dis created and ready } ]
+at : 2024-01-31T08:57:55.696228300   log  ->[ {  carCar Eis created and ready } ]
+at : 2024-01-31T08:57:55.799606400   log  ->[ {  stationStationAis created  ready with these locations : [CarChargingSimulator.Location@5a10411, CarChargingSimulator.Location@2ef1e4fa, CarChargingSimulator.Location@306a30c7]} ]
+at : 2024-01-31T08:57:55.909099400   log  ->[ {  stationStationBis created  ready with these locations : [CarChargingSimulator.Location@b81eda8, CarChargingSimulator.Location@68de145, CarChargingSimulator.Location@27fa135a]} ]
+at : 2024-01-31T08:57:56.013957500   log  ->[ {  stationStationCis created  ready with these locations : [CarChargingSimulator.Location@46f7f36a, CarChargingSimulator.Location@421faab1, CarChargingSimulator.Location@2b71fc7e]} ]
+at : 2024-01-31T08:57:56.119717200   log  ->[ {  
+} ]
+at : 2024-01-31T08:57:56.119717200   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:57:56.133078400   log  ->[ {  car Car{carId='123', carName='Car A'} arrived  in Station's queue StationA in : 2024-01-31T08:57:56.119717200} ]
+at : 2024-01-31T08:57:56.138815900   log  ->[ {  the waiting time is  : 2 minutes} ]
+at : 2024-01-31T08:57:56.139135500   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:57:56.140133700   log  ->[ {  
+} ]
+at : 2024-01-31T08:57:56.141133900   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:57:56.141502100   log  ->[ {  car Car{carId='456', carName='Car B'} arrived  in Station's queue StationA in : 2024-01-31T08:57:56.140133700} ]
+at : 2024-01-31T08:57:56.142501700   log  ->[ {  the waiting time is  : 4 minutes} ]
+at : 2024-01-31T08:57:56.142695   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:57:56.143695200   log  ->[ {  
+} ]
+at : 2024-01-31T08:57:56.144701900   log  ->[ {  the cars after  Car C can't wait in this line because this station takes time more than 15 minutes} ]
+at : 2024-01-31T08:57:57.152966500   log  ->[ {  
+} ]
+at : 2024-01-31T08:57:57.152966500   log  ->[ {  
+} ]
+at : 2024-01-31T08:57:57.153951400   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:57:57.153951400   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:57:57.154952200   log  ->[ {  car Car{carId='123', carName='Car A'} went  to location :  Location 1} ]
+at : 2024-01-31T08:57:57.154952200   log  ->[ {  car Car{carId='456', carName='Car B'} went  to location :  Location 3} ]
+at : 2024-01-31T08:57:57.155953   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:57:57.155953   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:57:59.161105300   log  ->[ {  
+} ]
+at : 2024-01-31T08:57:59.161105300   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:00.180671300   log  ->[ {  remaining amount in slot for < Location 3 > in  StationA is 80.0} ]
+at : 2024-01-31T08:58:00.180671300   log  ->[ {  remaining amount in slot for < Location 1 > in  StationA is 80.0} ]
+at : 2024-01-31T08:58:01.187500400   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:01.187500400   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:02.195680100   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:02.195680100   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:02.197090500   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:02.197090500   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:05.220205300   log  ->[ {  Car :Car{carId='123', carName='Car A'}
+with Battery status : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=70.0}} ]
+at : 2024-01-31T08:58:05.220205300   log  ->[ {  Car :Car{carId='456', carName='Car B'}
+with Battery status : ElectricalBatteryTypeB{capacity=150.0, remainingCharge=80.0}} ]
+at : 2024-01-31T08:58:07.239455100   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:07.239455100   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:15.020864900   log  ->[ {  carCar Ais created and ready } ]
+at : 2024-01-31T08:58:15.533331200   log  ->[ {  carCar Bis created and ready } ]
+at : 2024-01-31T08:58:16.046845800   log  ->[ {  carCar Cis created and ready } ]
+at : 2024-01-31T08:58:16.550356900   log  ->[ {  carCar Dis created and ready } ]
+at : 2024-01-31T08:58:17.059382   log  ->[ {  carCar Eis created and ready } ]
+at : 2024-01-31T08:58:17.568755500   log  ->[ {  stationStationAis created  ready with these locations : [CarChargingSimulator.Location@5a10411, CarChargingSimulator.Location@2ef1e4fa, CarChargingSimulator.Location@306a30c7]} ]
+at : 2024-01-31T08:58:18.087025700   log  ->[ {  stationStationBis created  ready with these locations : [CarChargingSimulator.Location@b81eda8, CarChargingSimulator.Location@68de145, CarChargingSimulator.Location@27fa135a]} ]
+at : 2024-01-31T08:58:18.594390400   log  ->[ {  stationStationCis created  ready with these locations : [CarChargingSimulator.Location@46f7f36a, CarChargingSimulator.Location@421faab1, CarChargingSimulator.Location@2b71fc7e]} ]
+at : 2024-01-31T08:58:19.097126800   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:19.098125200   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:58:19.110346200   log  ->[ {  car Car{carId='123', carName='Car A'} arrived  in Station's queue StationA in : 2024-01-31T08:58:19.096686} ]
+at : 2024-01-31T08:58:19.117948900   log  ->[ {  the waiting time is  : 2 minutes} ]
+at : 2024-01-31T08:58:19.118967100   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:58:19.119753300   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:19.120771   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:58:19.121778800   log  ->[ {  car Car{carId='456', carName='Car B'} arrived  in Station's queue StationA in : 2024-01-31T08:58:19.119753300} ]
+at : 2024-01-31T08:58:19.121778800   log  ->[ {  the waiting time is  : 4 minutes} ]
+at : 2024-01-31T08:58:19.123095700   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:58:19.123857800   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:19.124856200   log  ->[ {  the cars after  Car C can't wait in this line because this station takes time more than 15 minutes} ]
+at : 2024-01-31T08:58:20.130850700   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:20.130850700   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:20.132670500   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:58:20.132670500   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:58:20.133824100   log  ->[ {  car Car{carId='123', carName='Car A'} went  to location :  Location 1} ]
+at : 2024-01-31T08:58:20.133824100   log  ->[ {  car Car{carId='456', carName='Car B'} went  to location :  Location 2} ]
+at : 2024-01-31T08:58:20.134823200   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:58:20.134823200   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:58:22.149805900   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:22.149805900   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:23.157205   log  ->[ {  remaining amount in slot for < Location 1 > in  StationA is 80.0} ]
+at : 2024-01-31T08:58:23.157205   log  ->[ {  remaining amount in slot for < Location 2 > in  StationA is 100.0} ]
+at : 2024-01-31T08:58:24.177590100   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:24.177590100   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:25.180834100   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:25.180834100   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:25.182319400   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:25.182319400   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:28.206317900   log  ->[ {  Car :Car{carId='123', carName='Car A'}
+with Battery status : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=70.0}} ]
+at : 2024-01-31T08:58:28.206317900   log  ->[ {  Car :Car{carId='456', carName='Car B'}
+with Battery status : ElectricalBatteryTypeB{capacity=150.0, remainingCharge=80.0}} ]
+at : 2024-01-31T08:58:30.225518900   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:30.225518900   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:32.227219600   log  ->[ {   the car Car{carId='123', carName='Car A'} in Location 1 in  StationA is charging ... } ]
+at : 2024-01-31T08:58:32.227219600   log  ->[ {   the car Car{carId='456', carName='Car B'} in Location 2 in  StationA is charging ... } ]
+at : 2024-01-31T08:58:36.679690200   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T08:58:36.699627200   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T08:58:42.706038600   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:42.707084200   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:58:42.721824200   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:42.722809100   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:58:43.718569   log  ->[ {   in  :{ StationA }  the  :Car B ----> battery status after this charge pump : ElectricalBatteryTypeB{capacity=150.0, remainingCharge=120.0}} ]
+at : 2024-01-31T08:58:43.733850200   log  ->[ {   in  :{ StationA }  the  :Car A ----> battery status after this charge pump : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=100.0}} ]
+at : 2024-01-31T08:58:44.720985400   log  ->[ {  remaining amount in slot 60.0} ]
+at : 2024-01-31T08:58:44.736893100   log  ->[ {  remaining amount in slot 50.0} ]
+at : 2024-01-31T08:58:45.726955800   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:58:45.727069900   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:45.743090100   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:58:45.743090100   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:49.742093200   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:49.760061700   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:50.752984900   log  ->[ {  remaining amount in slot for < Location 2 > in  StationA is 60.0} ]
+at : 2024-01-31T08:58:50.768112100   log  ->[ {  remaining amount in slot for < Location 1 > in  StationA is 50.0} ]
+at : 2024-01-31T08:58:51.771753800   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:51.771753800   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:52.775454100   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:52.775454100   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:52.776362200   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:52.776362200   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:55.788896   log  ->[ {  Car :Car{carId='123', carName='Car A'}
+with Battery status : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=100.0}} ]
+at : 2024-01-31T08:58:55.788896   log  ->[ {  Car :Car{carId='456', carName='Car B'}
+with Battery status : ElectricalBatteryTypeB{capacity=150.0, remainingCharge=120.0}} ]
+at : 2024-01-31T08:58:57.803927900   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:57.803927900   log  ->[ {  
+} ]
+at : 2024-01-31T08:58:59.806474200   log  ->[ {   the car Car{carId='123', carName='Car A'} in Location 1 in  StationA is charging ... } ]
+at : 2024-01-31T08:58:59.806474200   log  ->[ {   the car Car{carId='456', carName='Car B'} in Location 2 in  StationA is charging ... } ]
+at : 2024-01-31T08:59:04.183394100   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T08:59:04.183394100   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T08:59:06.194365   log  ->[ {  the  Car B  is gone } ]
+at : 2024-01-31T08:59:06.194365   log  ->[ {  the  Car A  is gone } ]
+at : 2024-01-31T08:59:09.196894400   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:09.197841700   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:59:09.197841700   log  ->[ {  car Car{carId='789', carName='Car C'} arrived  in Station's queue StationB in : 2024-01-31T08:59:09.196688} ]
+at : 2024-01-31T08:59:09.199227800   log  ->[ {  the waiting time is  : 2 minutes} ]
+at : 2024-01-31T08:59:09.200345400   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:59:09.200413700   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:09.201548700   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:59:09.201718800   log  ->[ {  car Car{carId='101', carName='Car D'} arrived  in Station's queue StationB in : 2024-01-31T08:59:09.200413700} ]
+at : 2024-01-31T08:59:09.202716400   log  ->[ {  the waiting time is  : 4 minutes} ]
+at : 2024-01-31T08:59:09.202716400   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:59:09.203599500   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:09.204218500   log  ->[ {  the cars after  Car E can't wait in this line because this station takes time more than 15 minutes} ]
+at : 2024-01-31T08:59:10.213981   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:10.213981   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:10.214991500   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:59:10.214991500   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:59:10.216289600   log  ->[ {  car Car{carId='789', carName='Car C'} went  to location :  Location 1} ]
+at : 2024-01-31T08:59:10.216289600   log  ->[ {  car Car{carId='101', carName='Car D'} went  to location :  Location 3} ]
+at : 2024-01-31T08:59:10.216869400   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:59:10.216869400   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:59:12.228339300   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:12.228339300   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:13.236688800   log  ->[ {  remaining amount in slot for < Location 3 > in  StationB is 80.0} ]
+at : 2024-01-31T08:59:13.236688800   log  ->[ {  remaining amount in slot for < Location 1 > in  StationB is 80.0} ]
+at : 2024-01-31T08:59:14.238708800   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:14.238708800   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:15.251602   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:15.251602   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:15.252952600   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:15.252952600   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:18.269542   log  ->[ {  Car :Car{carId='101', carName='Car D'}
+with Battery status : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=30.0}} ]
+at : 2024-01-31T08:59:18.269542   log  ->[ {  Car :Car{carId='789', carName='Car C'}
+with Battery status : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=20.0}} ]
+at : 2024-01-31T08:59:20.275764900   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:20.275764900   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:22.286817900   log  ->[ {   the car Car{carId='789', carName='Car C'} in Location 1 in  StationB is charging ... } ]
+at : 2024-01-31T08:59:22.286817900   log  ->[ {   the car Car{carId='101', carName='Car D'} in Location 3 in  StationB is charging ... } ]
+at : 2024-01-31T08:59:26.673283800   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T08:59:26.673283800   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T08:59:32.701615700   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:32.701615700   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:32.703242300   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:59:32.703242300   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:59:33.716782700   log  ->[ {   in  :{ StationB }  the  :Car D ----> battery status after this charge pump : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=100.0}} ]
+at : 2024-01-31T08:59:33.716782700   log  ->[ {   in  :{ StationB }  the  :Car C ----> battery status after this charge pump : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=100.0}} ]
+at : 2024-01-31T08:59:34.740200   log  ->[ {  remaining amount in slot 0.0} ]
+at : 2024-01-31T08:59:34.740200   log  ->[ {  remaining amount in slot 10.0} ]
+at : 2024-01-31T08:59:35.742923100   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:59:35.742923100   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T08:59:35.744151800   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:35.744151800   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:43.473735800   log  ->[ {  carCar A is created and ready } ]
+at : 2024-01-31T08:59:43.989082500   log  ->[ {  carCar B is created and ready } ]
+at : 2024-01-31T08:59:44.503762100   log  ->[ {  carCar C is created and ready } ]
+at : 2024-01-31T08:59:45.017504400   log  ->[ {  carCar D is created and ready } ]
+at : 2024-01-31T08:59:45.531390   log  ->[ {  carCar E is created and ready } ]
+at : 2024-01-31T08:59:46.044328500   log  ->[ {  stationStationA is created  ready with these locations : [{, name='Location 1'}, {, name='Location 2'}, {, name='Location 3'}]} ]
+at : 2024-01-31T08:59:46.551579900   log  ->[ {  stationStationB is created  ready with these locations : [{, name='Location 1'}, {, name='Location 2'}, {, name='Location 3'}]} ]
+at : 2024-01-31T08:59:47.057245200   log  ->[ {  stationStationC is created  ready with these locations : [{, name='Location 1'}, {, name='Location 2'}, {, name='Location 3'}]} ]
+at : 2024-01-31T08:59:47.566558200   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:47.567653900   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:59:47.575692   log  ->[ {  car Car{carId='123', carName='Car A'} arrived  in Station's queue StationA in : 2024-01-31T08:59:47.566488200} ]
+at : 2024-01-31T08:59:47.584201800   log  ->[ {  the waiting time is  : 2 minutes} ]
+at : 2024-01-31T08:59:47.585215400   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:59:47.585820200   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:47.586302600   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:59:47.587315900   log  ->[ {  car Car{carId='456', carName='Car B'} arrived  in Station's queue StationA in : 2024-01-31T08:59:47.585820200} ]
+at : 2024-01-31T08:59:47.587315900   log  ->[ {  the waiting time is  : 4 minutes} ]
+at : 2024-01-31T08:59:47.588303200   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T08:59:47.589316300   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:47.590303   log  ->[ {  the cars after  Car C can't wait in this line because this station takes time more than 15 minutes} ]
+at : 2024-01-31T08:59:48.602174100   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:48.603297600   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:59:48.604369300   log  ->[ {  car Car{carId='123', carName='Car A'} went  to location :  Location 3} ]
+at : 2024-01-31T08:59:48.604575   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T08:59:50.607825300   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:51.625413   log  ->[ {  remaining amount in slot for < Location 3 > in  StationA is 80.0} ]
+at : 2024-01-31T08:59:52.629587400   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:53.639319   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:53.639319   log  ->[ {  
+} ]
+at : 2024-01-31T08:59:56.648038100   log  ->[ {  Car :Car{carId='123', carName='Car A'}
+with Battery status : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=70.0}} ]
+at : 2024-01-31T08:59:58.655739600   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:00.675021300   log  ->[ {   the car Car{carId='123', carName='Car A'} in Location 3 in  StationA is charging ... } ]
+at : 2024-01-31T09:00:05.095052400   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T09:00:11.169036200   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:11.170701200   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T09:00:12.177426500   log  ->[ {   in  :{ StationA }  the  :Car A ----> battery status after this charge pump : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=100.0}} ]
+at : 2024-01-31T09:00:13.188582500   log  ->[ {  remaining amount in slot 50.0} ]
+at : 2024-01-31T09:00:14.194499900   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T09:00:14.194933500   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:18.205381700   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:19.219304200   log  ->[ {  remaining amount in slot for < Location 3 > in  StationA is 50.0} ]
+at : 2024-01-31T09:00:20.231664300   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:21.236569900   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:21.237299900   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:24.258899400   log  ->[ {  Car :Car{carId='123', carName='Car A'}
+with Battery status : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=100.0}} ]
+at : 2024-01-31T09:00:26.273694500   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:28.281571700   log  ->[ {   the car Car{carId='123', carName='Car A'} in Location 3 in  StationA is charging ... } ]
+at : 2024-01-31T09:00:32.723185200   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T09:00:34.739050100   log  ->[ {  the  Car A  is gone } ]
+at : 2024-01-31T09:00:37.745606800   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:37.746606600   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T09:00:37.747291100   log  ->[ {  car Car{carId='789', carName='Car C'} arrived  in Station's queue StationB in : 2024-01-31T09:00:37.745606800} ]
+at : 2024-01-31T09:00:37.747291100   log  ->[ {  the waiting time is  : 2 minutes} ]
+at : 2024-01-31T09:00:37.747899   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T09:00:37.748596200   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:37.749592900   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T09:00:37.749592900   log  ->[ {  car Car{carId='101', carName='Car D'} arrived  in Station's queue StationB in : 2024-01-31T09:00:37.748596200} ]
+at : 2024-01-31T09:00:37.749592900   log  ->[ {  the waiting time is  : 4 minutes} ]
+at : 2024-01-31T09:00:37.749592900   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T09:00:37.749592900   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:37.749592900   log  ->[ {  the cars after  Car E can't wait in this line because this station takes time more than 15 minutes} ]
+at : 2024-01-31T09:00:38.767992300   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:38.767992300   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:38.769648600   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T09:00:38.769648600   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T09:00:38.769648600   log  ->[ {  car Car{carId='789', carName='Car C'} went  to location :  Location 2} ]
+at : 2024-01-31T09:00:38.770646200   log  ->[ {  car Car{carId='101', carName='Car D'} went  to location :  Location 1} ]
+at : 2024-01-31T09:00:38.770646200   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T09:00:38.770646200   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T09:00:40.780731100   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:40.780731100   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:41.782193900   log  ->[ {  remaining amount in slot for < Location 2 > in  StationB is 100.0} ]
+at : 2024-01-31T09:00:41.783210600   log  ->[ {  remaining amount in slot for < Location 1 > in  StationB is 80.0} ]
+at : 2024-01-31T09:00:42.795008400   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:42.795008400   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:43.808961600   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:43.808961600   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:43.810491500   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:43.810491500   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:46.835505600   log  ->[ {  Car :Car{carId='789', carName='Car C'}
+with Battery status : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=20.0}} ]
+at : 2024-01-31T09:00:46.835505600   log  ->[ {  Car :Car{carId='101', carName='Car D'}
+with Battery status : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=30.0}} ]
+at : 2024-01-31T09:00:48.854322   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:48.854322   log  ->[ {  
+} ]
+at : 2024-01-31T09:00:50.874796800   log  ->[ {   the car Car{carId='101', carName='Car D'} in Location 1 in  StationB is charging ... } ]
+at : 2024-01-31T09:00:50.874796800   log  ->[ {   the car Car{carId='789', carName='Car C'} in Location 2 in  StationB is charging ... } ]
+at : 2024-01-31T09:00:55.293053300   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T09:00:55.293053300   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T09:01:01.325956800   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:01.325956800   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:01.327050400   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T09:01:01.327050400   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T09:01:02.335004600   log  ->[ {   in  :{ StationB }  the  :Car C ----> battery status after this charge pump : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=100.0}} ]
+at : 2024-01-31T09:01:02.335004600   log  ->[ {   in  :{ StationB }  the  :Car D ----> battery status after this charge pump : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=100.0}} ]
+at : 2024-01-31T09:01:03.340032700   log  ->[ {  remaining amount in slot 10.0} ]
+at : 2024-01-31T09:01:03.340032700   log  ->[ {  remaining amount in slot 20.0} ]
+at : 2024-01-31T09:01:04.346708500   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T09:01:04.346708500   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T09:01:04.347348200   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:04.347348200   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:08.365014800   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:08.365014800   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:09.381355500   log  ->[ {  remaining amount in slot for < Location 1 > in  StationB is 10.0} ]
+at : 2024-01-31T09:01:09.381355500   log  ->[ {  remaining amount in slot for < Location 2 > in  StationB is 20.0} ]
+at : 2024-01-31T09:01:10.383632300   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:10.383632300   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:11.401360500   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:11.401360500   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:11.402816900   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:11.402816900   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:14.424644800   log  ->[ {  Car :Car{carId='789', carName='Car C'}
+with Battery status : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=100.0}} ]
+at : 2024-01-31T09:01:14.424644800   log  ->[ {  Car :Car{carId='101', carName='Car D'}
+with Battery status : ElectricalBatteryTypeA{capacity=100.0, remainingCharge=100.0}} ]
+at : 2024-01-31T09:01:16.445552   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:16.445552   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:18.452856300   log  ->[ {   the car Car{carId='101', carName='Car D'} in Location 1 in  StationB is charging ... } ]
+at : 2024-01-31T09:01:18.452856300   log  ->[ {   the car Car{carId='789', carName='Car C'} in Location 2 in  StationB is charging ... } ]
+at : 2024-01-31T09:01:22.823913300   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T09:01:22.900175   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T09:01:24.841617900   log  ->[ {  the  Car D  is gone } ]
+at : 2024-01-31T09:01:24.904967200   log  ->[ {  the  Car C  is gone } ]
+at : 2024-01-31T09:01:27.916862800   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:27.918172200   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T09:01:27.918172200   log  ->[ {  car Car{carId='112', carName='Car E'} arrived  in Station's queue StationC in : 2024-01-31T09:01:27.916862800} ]
+at : 2024-01-31T09:01:27.919552600   log  ->[ {  the waiting time is  : 2 minutes} ]
+at : 2024-01-31T09:01:27.919552600   log  ->[ {  - - - - - - - - - - - - - - - - --  } ]
+at : 2024-01-31T09:01:28.938141100   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:28.938141100   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T09:01:28.938141100   log  ->[ {  car Car{carId='112', carName='Car E'} went  to location :  Location 1} ]
+at : 2024-01-31T09:01:28.938141100   log  ->[ {   + + + + + + + + + + + + + + ++ } ]
+at : 2024-01-31T09:01:30.950387400   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:31.965481600   log  ->[ {  remaining amount in slot for < Location 1 > in  StationC is 80.0} ]
+at : 2024-01-31T09:01:32.981592500   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:33.985008200   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:33.986483   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:36.995304300   log  ->[ {  Car :Car{carId='112', carName='Car E'}
+with Battery status : ElectricalBatteryTypeB{capacity=150.0, remainingCharge=50.0}} ]
+at : 2024-01-31T09:01:39.030246900   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:41.036681400   log  ->[ {   the car Car{carId='112', carName='Car E'} in Location 1 in  StationC is charging ... } ]
+at : 2024-01-31T09:01:45.408248200   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T09:01:51.451604900   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:51.452616200   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T09:01:52.463451100   log  ->[ {   in  :{ StationC }  the  :Car E ----> battery status after this charge pump : ElectricalBatteryTypeB{capacity=150.0, remainingCharge=120.0}} ]
+at : 2024-01-31T09:01:53.477497500   log  ->[ {  remaining amount in slot 10.0} ]
+at : 2024-01-31T09:01:54.487703900   log  ->[ {  ##########################################################} ]
+at : 2024-01-31T09:01:54.488690200   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:58.498561900   log  ->[ {  
+} ]
+at : 2024-01-31T09:01:59.501442100   log  ->[ {  remaining amount in slot for < Location 1 > in  StationC is 10.0} ]
+at : 2024-01-31T09:02:00.505116400   log  ->[ {  
+} ]
+at : 2024-01-31T09:02:01.521022100   log  ->[ {  
+} ]
+at : 2024-01-31T09:02:01.521193   log  ->[ {  
+} ]
+at : 2024-01-31T09:02:04.535919200   log  ->[ {  Car :Car{carId='112', carName='Car E'}
+with Battery status : ElectricalBatteryTypeB{capacity=150.0, remainingCharge=120.0}} ]
+at : 2024-01-31T09:02:06.548474500   log  ->[ {  
+} ]
+at : 2024-01-31T09:02:08.551399300   log  ->[ {   the car Car{carId='112', carName='Car E'} in Location 1 in  StationC is charging ... } ]
+at : 2024-01-31T09:02:12.965830500   log  ->[ {  
+Progress complete!} ]
+at : 2024-01-31T09:02:14.971762400   log  ->[ {  the  Car E  is gone } ]
