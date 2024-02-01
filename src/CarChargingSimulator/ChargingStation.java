@@ -28,7 +28,7 @@ public class ChargingStation {
         car.setArriveTime(LocalDateTime.now());
         ReadAndWriteLog.writeLog("\n"  );
         if (isAllLocationOccupied()) throw new StationQueueIsFullException(this.toString()); // full exception
-        if (cars.size() * 8 < 15) {//each car takes 2 minutes to be charged and the fixed amount time is 15 minutes
+        if (cars.size() * 8 < 15) {//each car takes 8 minutes to be charged and the fixed amount time is 15 minutes
             this.cars.add(car);
             ReadAndWriteLog.writeLog("- - - - - - - - - - - - - - - - --  ");
             ReadAndWriteLog.writeLog("car " + car + " arrived  in Station's queue " + this.name + " in : " + car.getArriveTime());
